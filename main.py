@@ -1,8 +1,9 @@
 # Importing necessary packages
 import tkinter as tk
 from tkinter import *
+from tkinter import filedialog, messagebox
+
 from pytube import YouTube
-from tkinter import messagebox, filedialog
 
 
 # Defining CreateWidgets() function
@@ -72,7 +73,7 @@ def Widgets():
 
     Download_B = Button(root,
                         text="Download Video",
-                        command="Download",
+                        command=Download,
                         width=20,
                         bg="thistle1",
                         pady=10,
