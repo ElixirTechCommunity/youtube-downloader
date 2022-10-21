@@ -72,7 +72,7 @@ def Widgets():
 
     Download_B = Button(root,
                         text="Download Video",
-                        command="Download",
+                        command=Download,
                         width=20,
                         bg="thistle1",
                         pady=10,
@@ -119,17 +119,19 @@ def Download():
     # Getting all the available streams of the
     # youtube video and selecting the first
     # from the
+    messagebox.showinfo("MESSAGE","STARTING DOWNLOAD")
     videoStream = getVideo.streams.first()
 
     # Downloading the video to destination
     # directory
-    videoStream.download(download_Folder)
+    try:
+        videoStream.download(download_Folder)
 
-    # Displaying the message
-    messagebox.showinfo("SUCCESSFULLY",
-                        "DOWNLOADED AND SAVED IN\n"
-                        + download_Folder)
-
+        # Displaying the message
+        messagebox.showinfo("SUCCESSFULL","VIDEO DOWNLOADED SUCCESSFULLY "+download_Folder)
+    except:
+        messge="THERE IS SOME ERROR. PLEASE CHECK THE LINK AND TRY AGAIN"
+        messagebox.showinfo("ERROR",messge)
 
 # Creating object of tk class
 root = tk.Tk()
